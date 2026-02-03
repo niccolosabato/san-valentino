@@ -65,15 +65,15 @@ const ValentinePage = () => {
         </h1>
         
         <p className="text-lg text-muted-foreground mb-10">
-          Una domanda importante richiede una risposta importante... 💕
-        </p>
+          Non provare assolutamente a premere il No! 
+                  </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center relative min-h-[100px]">
           <button
             onClick={handleYesClick}
             className="btn-valentine z-10"
           >
-            Sì! 💖
+            Sì! 💞
           </button>
 
           <button
@@ -87,7 +87,7 @@ const ValentinePage = () => {
               position: noButtonPosition.x !== 0 || noButtonPosition.y !== 0 ? 'absolute' : 'relative',
             }}
           >
-            No 😢
+            No 🖕
           </button>
         </div>
       </div>
