@@ -60,7 +60,7 @@ const ValentinePage = () => {
       <div className="card-romantic text-center max-w-lg z-10 animate-fade-in">
         <Heart className="w-20 h-20 mx-auto text-primary fill-primary mb-6 pulse-love" />
         
-        <h1 className="text-4xl md:text-5xl font-display font-bold text-gradient-romantic mb-4">
+        <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
           Vuoi essere la mia Valentina?
         </h1>
         

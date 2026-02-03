@@ -51,11 +51,11 @@ const TiAmoPage = () => {
         </div>
 
         <h1 
-          className={`text-6xl md:text-8xl font-display font-bold text-gradient-romantic mb-6 transition-all duration-1000 ${
+          className={`text-6xl md:text-8xl font-display font-bold mb-6 transition-all duration-1000 ${
             showMessage ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          Ti Amo
+          Bravaa!
         </h1>
 
         <p 
@@ -63,9 +63,9 @@ const TiAmoPage = () => {
             showSubtext ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          Grazie per aver accettato di essere la mia Valentina. 
+          Ora che hai scoperto tutto i regali dammi un bacetto però! 😘 
           <br />
-          <span className="text-primary font-semibold">Sei il mio tutto 💕</span>
+          <span className="text-primary font-semibold">Ti amo tanto 💞</span>
         </p>
 
         <div 
@@ -77,7 +77,7 @@ const TiAmoPage = () => {
           <span className="animate-bounce-soft">🥤</span>
           <span className="animate-bounce-soft" style={{ animationDelay: "0.2s" }}>🍫</span>
           <span className="animate-bounce-soft" style={{ animationDelay: "0.4s" }}>🧦</span>
-          <span className="animate-bounce-soft" style={{ animationDelay: "0.6s" }}>💕</span>
+          <span className="animate-bounce-soft" style={{ animationDelay: "0.6s" }}>💞</span>
         </div>
       </div>
     </div>

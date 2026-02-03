@@ -24,7 +24,7 @@ const rebuses: Rebus[] = [
   {
     id: "dolcetti",
     emoji: "🍬🍫🍪",
-    hint: "Cose dolci da mangiare insieme...",
+    hint: "Qualcosa da mangiare insieme...",
     answer: "dolcetti",
     gift: "Dolcetti",
     giftEmoji: "🍫",
@@ -39,11 +39,11 @@ const rebuses: Rebus[] = [
   },
   {
     id: "amore",
-    emoji: "💕👫💑",
+    emoji: "💞👩🏼‍🤝‍👨🏻😘",
     hint: "Il sentimento più bello del mondo...",
     answer: "amore",
     gift: "Amore",
-    giftEmoji: "💕",
+    giftEmoji: "💞",
   },
 ];
 
@@ -82,7 +82,7 @@ const RebusPage = () => {
       <div className="max-w-4xl mx-auto z-10 relative">
         <div className="text-center mb-8 animate-fade-in">
           <Heart className="w-12 h-12 mx-auto text-primary fill-primary mb-4 pulse-love" />
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-gradient-romantic mb-2">
+          <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">
             Sblocca i tuoi regali!
           </h1>
           <p className="text-muted-foreground">
