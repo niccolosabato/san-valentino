@@ -63,7 +63,7 @@ const TiAmoPage = () => {
             showSubtext ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          Ora che hai scoperto tutto i regali dammi un bacetto però! 😘 
+          Ora che hai scoperto tutti i regali dammi un bacetto però! 😘 
           <br />
           <span className="text-primary font-semibold">Ti amo tanto 💞</span>
         </p>
