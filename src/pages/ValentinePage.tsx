@@ -5,7 +5,7 @@ import FloatingHearts from "@/components/FloatingHearts";
 
 const ValentinePage = () => {
   const navigate = useNavigate();
-  const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
+  const [noButtonPosition, setNoButtonPosition] = useState<{ x: number; y: number } | null>(null);
   const [showHearts, setShowHearts] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
@@ -13,14 +13,23 @@ const ValentinePage = () => {
   const escapeButton = () => {
     if (!containerRef.current || !noButtonRef.current) return;
 
-    const container = containerRef.current.getBoundingClientRect();
     const button = noButtonRef.current.getBoundingClientRect();
-    
-    const maxX = container.width - button.width - 50;
-    const maxY = container.height - button.height - 50;
-    
-    const newX = Math.random() * maxX - maxX / 2;
-    const newY = Math.random() * maxY - maxY / 2;
+    const yesBtn = document.querySelector('.btn-valentine')?.getBoundingClientRect();
+    const padding = 20;
+    const maxX = window.innerWidth - button.width - padding;
+    const maxY = window.innerHeight - button.height - padding;
+    let newX: number, newY: number;
+    let attempts = 0;
+    do {
+      newX = Math.random() * maxX + padding;
+      newY = Math.random() * maxY + padding;
+      attempts++;
+    } while (
+      attempts < 50 &&
+      yesBtn &&
+      Math.abs(newX - yesBtn.left) < yesBtn.width + 20 &&
+      Math.abs(newY - yesBtn.top) < yesBtn.height + 20
+    );
     
     setNoButtonPosition({ x: newX, y: newY });
   };
@@ -82,10 +91,12 @@ const ValentinePage = () => {
             onTouchStart={escapeButton}
             onClick={escapeButton}
             className="btn-escape"
-            style={{
-              transform: `translate(${noButtonPosition.x}px, ${noButtonPosition.y}px)`,
-              position: noButtonPosition.x !== 0 || noButtonPosition.y !== 0 ? 'absolute' : 'relative',
-            }}
+            style={noButtonPosition ? {
+              position: 'fixed',
+              left: `${noButtonPosition.x}px`,
+              top: `${noButtonPosition.y}px`,
+              zIndex: 40,
+            } : {}}
           >
             No 🖕
           </button>
