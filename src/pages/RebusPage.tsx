@@ -7,7 +7,7 @@ interface Rebus {
   id: string;
   emoji: string;
   hint: string;
-  answer: string;
+  answer: string[];
   gift: string;
   giftEmoji: string;
 }
@@ -17,7 +17,7 @@ const rebuses: Rebus[] = [
     id: "cocacola",
     emoji: "🥤❤️",
     hint: "La bevanda frizzante che ti piace tanto...",
-    answer: "coca cola",
+    answer: ["coca cola", "cocacola"],
     gift: "Coca Cola",
     giftEmoji: "🥤",
   },
@@ -25,15 +25,15 @@ const rebuses: Rebus[] = [
     id: "dolcetti",
     emoji: "🍬🍫🍪",
     hint: "Qualcosa da mangiare insieme...",
-    answer: "dolcetti",
+    answer: ["dolcetti", "tonno"],
     gift: "Dolcetti",
     giftEmoji: "🍫",
   },
   {
     id: "calzini",
     emoji: "🧦👣❄️",
-    hint: "Tengono caldi i piedini...",
-    answer: "calzini",
+    hint: "Tengono caldi i piedi...",
+    answer: ["calzini"],
     gift: "Calzini",
     giftEmoji: "🧦",
   },
@@ -41,7 +41,7 @@ const rebuses: Rebus[] = [
     id: "amore",
     emoji: "💞👩🏼‍🤝‍👨🏻😘",
     hint: "Il sentimento più bello del mondo...",
-    answer: "amore",
+    answer: ["amore"],
     gift: "Amore",
     giftEmoji: "💞",
   },
@@ -59,7 +59,7 @@ const RebusPage = () => {
 
   const checkAnswer = (rebus: Rebus) => {
     const userAnswer = (currentInputs[rebus.id] || "").toLowerCase().trim();
-    if (userAnswer === rebus.answer) {
+    if (rebus.answer.includes(userAnswer)) {
       setUnlockedGifts((prev) => [...prev, rebus.id]);
       
       if (unlockedGifts.length === rebuses.length - 1) {
