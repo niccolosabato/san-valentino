@@ -91,12 +91,12 @@ const ValentinePage = () => {
             onTouchStart={escapeButton}
             onClick={escapeButton}
             className="btn-escape"
-            style={noButtonPosition ? {
+            style={{
               position: 'fixed',
-              left: `${noButtonPosition.x}px`,
-              top: `${noButtonPosition.y}px`,
+              left: noButtonPosition ? `${noButtonPosition.x}px` : 'auto',
+              top: noButtonPosition ? `${noButtonPosition.y}px` : 'auto',
               zIndex: 40,
-            } : {}}
+            }}
           >
             No 🖕
           </button>
