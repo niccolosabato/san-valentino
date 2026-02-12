@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Heart } from "lucide-react";
 import FloatingHearts from "@/components/FloatingHearts";
@@ -9,13 +9,6 @@ const ValentinePage = () => {
   const [showHearts, setShowHearts] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
-
-  useLayoutEffect(() => {
-    if (!noButtonPosition && noButtonRef.current) {
-      const rect = noButtonRef.current.getBoundingClientRect();
-      setNoButtonPosition({ x: rect.left, y: rect.top });
-    }
-  }, []);
 
   const escapeButton = () => {
     if (!containerRef.current || !noButtonRef.current) return;
@@ -39,6 +32,18 @@ const ValentinePage = () => {
     );
     
     setNoButtonPosition({ x: newX, y: newY });
+  };
+
+  const handleNoInteraction = () => {
+    if (!noButtonPosition && noButtonRef.current) {
+      const rect = noButtonRef.current.getBoundingClientRect();
+      setNoButtonPosition({ x: rect.left, y: rect.top });
+      setTimeout(() => {
+        escapeButton();
+      }, 0);
+    } else {
+      escapeButton();
+    }
   };
 
   const handleYesClick = () => {
@@ -94,9 +99,9 @@ const ValentinePage = () => {
 
           <button
             ref={noButtonRef}
-            onMouseEnter={escapeButton}
-            onTouchStart={escapeButton}
-            onClick={escapeButton}
+            onMouseEnter={handleNoInteraction}
+            onTouchStart={handleNoInteraction}
+            onClick={handleNoInteraction}
             className="btn-escape"
             style={noButtonPosition ? {
               position: 'fixed',
