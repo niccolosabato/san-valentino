@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Heart } from "lucide-react";
 import FloatingHearts from "@/components/FloatingHearts";
@@ -9,6 +9,13 @@ const ValentinePage = () => {
   const [showHearts, setShowHearts] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
+
+  useLayoutEffect(() => {
+    if (!noButtonPosition && noButtonRef.current) {
+      const rect = noButtonRef.current.getBoundingClientRect();
+      setNoButtonPosition({ x: rect.left, y: rect.top });
+    }
+  }, []);
 
   const escapeButton = () => {
     if (!containerRef.current || !noButtonRef.current) return;
@@ -91,12 +98,12 @@ const ValentinePage = () => {
             onTouchStart={escapeButton}
             onClick={escapeButton}
             className="btn-escape"
-            style={{
+            style={noButtonPosition ? {
               position: 'fixed',
-              left: noButtonPosition ? `${noButtonPosition.x}px` : 'auto',
-              top: noButtonPosition ? `${noButtonPosition.y}px` : 'auto',
+              left: `${noButtonPosition.x}px`,
+              top: `${noButtonPosition.y}px`,
               zIndex: 40,
-            }}
+            } : {}}
           >
             No 🖕
           </button>
