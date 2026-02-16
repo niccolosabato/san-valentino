@@ -64,7 +64,7 @@ const RebusPage = () => {
       
       if (unlockedGifts.length === rebuses.length - 1) {
         setTimeout(() => {
-          navigate("/ti-amo");
+          navigate("/caccia");
         }, 2000);
       }
     } else {
