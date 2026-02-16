@@ -13,25 +13,25 @@ const treasures: TreasureItem[] = [
     id: "cocacola",
     gift: "Coca Cola",
     giftEmoji: "🥤",
-    clue: "Dove teniamo le cose al fresco... apri e cerca bene! 🧊",
+    clue: "Da bere davanti alla PlayStation! 🛋️",
   },
   {
     id: "dolcetti",
     gift: "Dolcetti",
     giftEmoji: "🍫",
-    clue: "Vicino a dove cuciniamo le cose buone... controlla i ripiani! 🍳",
+    clue: "Stanno in compagnia degli altri dolci! 🍩",
   },
   {
     id: "calzini",
     gift: "Calzini",
     giftEmoji: "🧦",
-    clue: "Dove riposano i vestiti dopo il bucato... cerca nel cassetto! 👕",
+    clue: "Forse sono da lavare! 👕",
   },
   {
     id: "amore",
     gift: "Amore",
-    giftEmoji: "💕",
-    clue: "Il posto più comodo della casa... guarda sotto il cuscino! 🛋️",
+    giftEmoji: "💞",
+    clue: "Controlla nel tuo posto preferito della casa! 🛏️",
   },
 ];
 const CacciaAlTesoroPage = () => {
@@ -58,11 +58,11 @@ const CacciaAlTesoroPage = () => {
       <div className="max-w-4xl mx-auto z-10 relative">
         <div className="text-center mb-8 animate-fade-in">
           <MapPin className="w-12 h-12 mx-auto text-primary fill-primary mb-4 pulse-love" />
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-gradient-romantic mb-2">
+          <h1 className="text-3xl md:text-4xl font-display font-bold">
             Caccia al Tesoro! 🗺️
           </h1>
           <p className="text-muted-foreground">
-            I tuoi regali sono nascosti per casa... trova ogni indizio!
+            I tuoi regali sono nascosti per casa... trovali o usa l'indizio!
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
             <Gift className="w-5 h-5 text-gold" />
