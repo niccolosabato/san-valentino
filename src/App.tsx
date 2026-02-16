@@ -8,6 +8,7 @@ import RebusPage from "./pages/RebusPage";
 import CacciaAlTesoroPage from "./pages/CacciaAlTesoroPage";
 import TiAmoPage from "./pages/TiAmoPage";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<ValentinePage />} />
           <Route path="/rebus" element={<RebusPage />} />
